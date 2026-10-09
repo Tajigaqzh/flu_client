@@ -16,7 +16,10 @@ class SizePage extends StatelessWidget {
     return KnowledgeScaffold(
       title: '尺寸与约束',
       children: [
-        KnowledgeCard('尺寸与约束', '固定尺寸用 SizedBox;加“上下限”用 ConstrainedBox;锁定宽高比用 AspectRatio;按父级比例用 FractionallySizedBox;塞不下了自动缩放用 FittedBox。'),
+        KnowledgeCard(
+          '尺寸与约束',
+          '固定尺寸用 SizedBox;加“上下限”用 ConstrainedBox;锁定宽高比用 AspectRatio;按父级比例用 FractionallySizedBox;塞不下了自动缩放用 FittedBox。',
+        ),
 
         SectionTitle('① SizedBox:固定精确宽高'),
         LearnNote('child 固定成 (80×80);不给 child 时就是一条“空隙”(右边那个 16 宽的缝)。'),
@@ -40,6 +43,17 @@ class SizePage extends StatelessWidget {
             ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 60, maxHeight: 60),
               child: const Box('受限', color: Colors.deepPurple, size: 100),
+            ),
+          ],
+        ),
+
+        Row(
+          children: [
+            const Box('墨迹阿婆'),
+            const SizedBox(width: 20),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 100, maxHeight: 100),
+              child: const Box('测试', size: 100),
             ),
           ],
         ),

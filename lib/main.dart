@@ -1,20 +1,10 @@
 import 'package:flutter/material.dart';
+import 'learn/menu.dart';
 import 'pages/game.dart';
-import 'learn/menu.dart'; // 知识菜单:浏览所有知识点
+import 'player/player_page.dart'; // 音频播放器演示
 
 void main() {
   runApp(const MyAppPlus());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(body: Center(child: Tile('A', HitType.hit))),
-    );
-  }
 }
 
 class Tile extends StatelessWidget {
@@ -64,105 +54,17 @@ class MyAppPlus extends StatelessWidget {
         ),
         // body 显示哪个页面,决定你看到什么。
         //
-        //   当前: 知识菜单 —— 点任意知识点进去学
-        //        body: KnowledgeMenu(),
+        //   当前: 音频播放器演示
+        // body: const AudioPlayerPage(),
+        //
+        //   想看知识菜单,把 body 换回这一行:
+        body: KnowledgeMenu(),
         //
         //   想看 Birdle 猜词游戏时,把 body 换回这一行:
         //        body: Center(child: GamePageState()),
         //   然后热重载(在终端按 r)即可。
-        body: const KnowledgeMenu(),
       ),
     );
-  }
-}
-
-class GamePage extends StatelessWidget {
-  GamePage({super.key});
-
-  final Game _game = Game();
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: SizedBox(
-        width: double.infinity,
-        child: Column(
-          spacing: 5.0,
-          children: [
-            for (final guess in _game.guesses)
-              Row(
-                spacing: 5.0,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  for (final letter in guess) Tile(letter.char, letter.type),
-                ],
-              ),
-            GuessInput(
-              onSubmitGuess: (guess) {
-                print(guess);
-              },
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class GuessInput extends StatelessWidget {
-  GuessInput({super.key, required this.onSubmitGuess});
-
-  final void Function(String) onSubmitGuess;
-
-  // 管理用户输入到输入框中的文本
-  final TextEditingController _textEditingController = TextEditingController();
-
-  // 使用 FocusNode 管理键盘焦点。你可以使用 FocusNode 请求 TextField 获得焦点（在移动端使键盘出现），或了解字段何时具有焦点
-  final FocusNode _focusNode = FocusNode();
-
-  void _onSubmit() {
-    onSubmitGuess(_textEditingController.text.trim());
-    _textEditingController.clear();
-    _focusNode.requestFocus();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.all(8),
-            child: TextField(
-              maxLength: 5,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(35)),
-                ),
-
-                counterText: '',
-              ),
-              controller: _textEditingController,
-              // 输入框自动聚焦
-              autofocus: true,
-              // 事件触发
-              onSubmitted: (input) {
-                _onSubmit();
-              },
-            ),
-          ),
-        ),
-
-        IconButton(
-          padding: EdgeInsets.zero,
-          hoverColor: Colors.red.shade100,
-          icon: const Icon(Icons.arrow_circle_up, size: 40),
-          onPressed: _onSubmit,
-        ),
-      ],
-    ); // Placeholder
   }
 }
 

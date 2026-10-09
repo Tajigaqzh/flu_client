@@ -14,6 +14,7 @@
 // ============================================================
 
 import 'package:audio_session/audio_session.dart';
+import 'package:flutter/foundation.dart';
 import 'package:just_audio/just_audio.dart';
 
 /// 播放器的整体开关状态(带,够 UI 判断交互是否可用)
@@ -50,8 +51,6 @@ class AudioPlayerController {
   /// 当前曲目索引(列表高亮用)
   final ValueNotifier<int> currentIndex = ValueNotifier(-1);
 
-  // ---- 内置到假的 ValueListenable：just_audio 本身就是 observable,
-  //      这里用可替换的方式包装,UI 用 ValueNotifier 风格消费 ----
   /// 用于 UI 展示的当前曲目名
   final ValueNotifier<String> currentTitle = ValueNotifier('未载入');
   /// 当前是否加载中
@@ -59,6 +58,11 @@ class AudioPlayerController {
 
   List<Track> _queue = [];
   int _currentIndex = -1;
+
+  /// 播放列表里的曲目数(UI 渲染用)
+  int get trackCount => _queue.length;
+  /// 取第 i 首的标题(UI 列表用)
+  String titleAt(int i) => i >= 0 && i < _queue.length ? _queue[i].title : '';
 
   /// 循环模式
   LoopModeSetting _loop = LoopModeSetting.all;

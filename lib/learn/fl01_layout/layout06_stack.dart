@@ -15,7 +15,10 @@ class StackPage extends StatelessWidget {
     return KnowledgeScaffold(
       title: '叠放布局',
       children: [
-        KnowledgeCard('Stack / Positioned', 'Stack 把多个孩子叠在原点上(像 PS 图层);Positioned 能把它精确放到 top/right/left/bottom 指定的位置。做角标、悬浮按钮、头像上的红点都用它。'),
+        KnowledgeCard(
+          'Stack / Positioned',
+          'Stack 把多个孩子叠在原点上(像 PS 图层);Positioned 能把它精确放到 top/right/left/bottom 指定的位置。做角标、悬浮按钮、头像上的红点都用它。',
+        ),
 
         SectionTitle('① Stack:层层叠加'),
         LearnNote('第一个孩子在最底,后面的依次往上压。颜色更深的最先画,浅的压在上面。'),
@@ -23,10 +26,32 @@ class StackPage extends StatelessWidget {
           height: 110,
           child: Stack(
             children: [
-              Container(width: double.infinity, height: 90, color: Colors.grey.shade200),
+              Container(
+                width: double.infinity,
+                height: 90,
+                color: Colors.grey.shade600,
+              ),
               const Box('底层', color: Colors.red, size: 60),
-              const Positioned(top: 30, right: 20, child: Box('右上', color: Colors.amber, size: 40)),
-              const Positioned(bottom: 0, left: 80, child: Box('底部', color: Colors.black87, size: 30)),
+              const Positioned(
+                top: 0,
+                left: 0,
+                child: Box('底层3', color: Colors.deepPurple, size: 50),
+              ),
+              const Positioned(
+                top: 30,
+                right: 20,
+                child: Box('右上', color: Colors.black38, size: 50),
+              ),
+              const Positioned(
+                top: 30,
+                right: 20,
+                child: Box('右上', color: Colors.amber, size: 40),
+              ),
+              const Positioned(
+                bottom: 0,
+                left: 80,
+                child: Box('底部', color: Colors.black87, size: 30),
+              ),
             ],
           ),
         ),
@@ -38,7 +63,11 @@ class StackPage extends StatelessWidget {
           color: Colors.grey.shade100,
           child: const Stack(
             children: [
-              Positioned(top: 6, right: 6, child: Box('右上角', color: Colors.pink, size: 50)),
+              Positioned(
+                top: 6,
+                right: 6,
+                child: Box('右上角', color: Colors.pink, size: 50),
+              ),
             ],
           ),
         ),

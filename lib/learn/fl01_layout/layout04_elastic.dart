@@ -14,7 +14,10 @@ class ElasticPage extends StatelessWidget {
     return KnowledgeScaffold(
       title: '弹性分配',
       children: [
-        KnowledgeCard('弹性分配', 'Expanded=占满剩余空间(flex 定占比);Flexible=可伸缩但能被压缩;Spacer=透明占位,把两边的孩子推开。三者都只能用在 Row/Column 里。'),
+        KnowledgeCard(
+          '弹性分配',
+          'Expanded=占满剩余空间(flex 定占比);Flexible=可伸缩但能被压缩;Spacer=透明占位,把两边的孩子推开。三者都只能用在 Row/Column 里。',
+        ),
 
         SectionTitle('① Expanded:占满剩余空间'),
         LearnNote('两个 Expanded,flex 2:1,剩余空间按 2:1 分。固定“固定A/”后剩下多少都给它们。'),
@@ -23,11 +26,24 @@ class ElasticPage extends StatelessWidget {
             const Box('固定A', size: 50),
             Expanded(
               flex: 2,
-              child: Container(height: 50, color: Colors.purple, alignment: Alignment.center, child: const Text('Expanded 2', style: TextStyle(color: Colors.white))),
+              child: Container(
+                height: 50,
+                color: Colors.purple,
+                alignment: Alignment.center,
+                child: const Text(
+                  'Expanded 2',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
             ),
             Expanded(
               flex: 1,
-              child: Container(height: 50, color: Colors.deepPurple, alignment: Alignment.center, child: const Text('1', style: TextStyle(color: Colors.white))),
+              child: Container(
+                height: 50,
+                color: Colors.deepPurple,
+                alignment: Alignment.center,
+                child: const Text('1', style: TextStyle(color: Colors.white)),
+              ),
             ),
           ],
         ),
@@ -37,7 +53,9 @@ class ElasticPage extends StatelessWidget {
         Row(
           children: const [
             Box('20%', size: 50),
-            Flexible(child: Box('Flexible 不强撑', color: Colors.indigo, size: 50)),
+            Flexible(
+              child: Box('Flexible 不强撑', color: Colors.indigo, size: 50),
+            ),
             Box('20%', size: 50),
           ],
         ),

@@ -34,6 +34,95 @@ class AxisPage extends StatelessWidget {
           ),
         ),
 
+        SectionTitle('① mainAxisAlignment:主轴分布'),
+        LearnNote('spaceBetween=两端贴边、中间留空;spaceEvenly=每个间隙相等;center=整体居中;还有 spaceAround。'),
+        Container(
+          width: double.infinity,
+          color: Colors.grey.shade100,
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Box('一', size: 34),
+              Box('二', size: 50),
+              Box('三', size: 34),
+            ],
+          ),
+        ),
+
+
+
+        SectionTitle('① mainAxisAlignment:主轴分布'),
+        LearnNote('spaceBetween=两端贴边、中间留空;spaceEvenly=每个间隙相等;center=整体居中;还有 spaceAround。'),
+        Container(
+          width: double.infinity,
+          color: Colors.grey.shade100,
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Box('一', size: 34),
+              Box('二', size: 50),
+              Box('三', size: 34),
+            ],
+          ),
+        ),
+
+        SectionTitle('① mainAxisAlignment:主轴分布'),
+        LearnNote('spaceBetween=两端贴边、中间留空;spaceEvenly=每个间隙相等;center=整体居中;还有 spaceAround。'),
+        Container(
+          width: double.infinity,
+          color: Colors.grey.shade100,
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Box('一', size: 34),
+              Box('二', size: 50),
+              Box('三', size: 34),
+            ],
+          ),
+        ),
+
+
+
+        SectionTitle('① mainAxisAlignment:主轴分布'),
+        LearnNote('spaceBetween=两端贴边、中间留空;spaceEvenly=每个间隙相等;center=整体居中;还有 spaceAround。'),
+        Container(
+          width: double.infinity,
+          color: Colors.grey.shade100,
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Box('一', size: 34),
+              Box('二', size: 50),
+              Box('三', size: 34),
+            ],
+          ),
+        ),
+
+
+
+        SectionTitle('① mainAxisAlignment:主轴分布'),
+        LearnNote('spaceBetween=两端贴边、中间留空;spaceEvenly=每个间隙相等;center=整体居中;还有 spaceAround。'),
+        Container(
+          width: double.infinity,
+          color: Colors.grey.shade100,
+          child: const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Box('一', size: 34),
+              Box('二', size: 50),
+              Box('三', size: 34),
+            ],
+          ),
+        ),
+
+
+
+
         SectionTitle('② MainAxisSize:撑不撑满'),
         LearnNote('默认 max 撑满整行;改成 min 就只包内容宽度,右侧露空。'),
         Container(
