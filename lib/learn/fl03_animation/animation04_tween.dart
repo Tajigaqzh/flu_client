@@ -16,14 +16,19 @@ class TweenPage extends StatelessWidget {
     return KnowledgeScaffold(
       title: 'Tween',
       children: [
-        KnowledgeCard('Tween', '把进度 0~1 翻译成另一个区间(尺寸 10→10、颜色 红→蓝、偏移 左→右)。写法:`Tween(begin:…, end:…).animate(控制器)`。比手动算公式更清晰。'),
+        KnowledgeCard(
+          'Tween',
+          '把进度 0~1 翻译成另一个区间(尺寸 10→10、颜色 红→蓝、偏移 左→右)。写法:`Tween(begin:…, end:…).animate(控制器)`。比手动算公式更清晰。',
+        ),
 
         SectionTitle('① 尺寸 + 颜色一起 Tween'),
         LearnNote('两个 Tween:SizeTween 控制大小,ColorTween 控制颜色。一个进度,两样东西联动画。'),
         const _ColorDemo(),
 
         SectionTitle('② 位移 Tween:把方块从左边挪到右边'),
-        LearnNote('用 Tween<Offset>(end: Offset(220,0)) 让方块水平位移。要 animate 的对象得“可插值”,Offset、Color 都内置支持。'),
+        LearnNote(
+          '用 Tween<Offset>(end: Offset(220,0)) 让方块水平位移。要 animate 的对象得“可插值”,Offset、Color 都内置支持。',
+        ),
         const _OffsetDemo(),
       ],
     );
@@ -37,15 +42,21 @@ class _ColorDemo extends StatefulWidget {
   State<_ColorDemo> createState() => _ColorDemoState();
 }
 
-class _ColorDemoState extends State<_ColorDemo> with SingleTickerProviderStateMixin {
+class _ColorDemoState extends State<_ColorDemo>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _ctrl = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 900),
   )..addListener(() => setState(() {}));
 
-  late final Animation<double> _size = Tween<double>(begin: 60, end: 130).animate(_ctrl);
-  late final Animation<Color> _color =
-      ColorTween(begin: Colors.red, end: Colors.blue).animate(_ctrl) as Animation<Color>;
+  late final Animation<double> _size = Tween<double>(
+    begin: 60,
+    end: 130,
+  ).animate(_ctrl);
+  late final Animation<Color?> _color = ColorTween(
+    begin: Colors.red,
+    end: Colors.blue,
+  ).animate(_ctrl);
 
   @override
   void dispose() {
@@ -81,13 +92,17 @@ class _OffsetDemo extends StatefulWidget {
   State<_OffsetDemo> createState() => _OffsetDemoState();
 }
 
-class _OffsetDemoState extends State<_OffsetDemo> with SingleTickerProviderStateMixin {
+class _OffsetDemoState extends State<_OffsetDemo>
+    with SingleTickerProviderStateMixin {
   late final AnimationController _ctrl = AnimationController(
     vsync: this,
     duration: const Duration(milliseconds: 800),
   )..addListener(() => setState(() {}));
 
-  late final Animation<Offset> _off = Tween<Offset>(end: const Offset(220, 0)).animate(_ctrl);
+  late final Animation<Offset> _off = Tween<Offset>(
+    begin: Offset.zero,
+    end: const Offset(220, 0),
+  ).animate(_ctrl);
 
   @override
   void dispose() {
@@ -103,7 +118,13 @@ class _OffsetDemoState extends State<_OffsetDemo> with SingleTickerProviderState
           alignment: Alignment.centerLeft,
           child: Transform.translate(
             offset: _off.value,
-            child: Container(width: 60, height: 60, color: Colors.purple, alignment: Alignment.center, child: const Text('跑', style: TextStyle(color: Colors.white))),
+            child: Container(
+              width: 60,
+              height: 60,
+              color: Colors.purple,
+              alignment: Alignment.center,
+              child: const Text('跑', style: TextStyle(color: Colors.white)),
+            ),
           ),
         ),
         const SizedBox(height: 8),
