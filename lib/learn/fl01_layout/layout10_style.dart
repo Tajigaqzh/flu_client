@@ -5,6 +5,8 @@
 //   Container 的 color: 上)。
 // ============================================================
 
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import '../common.dart';
 
@@ -31,6 +33,164 @@ class StylePage extends StatelessWidget {
             Box('Colors.blue', color: Colors.blue, size: 72),
             Box('shade600', color: Colors.blueGrey, size: 72),
             Box('#00BFA5', color: Color(0xFF00BFA5), size: 72),
+          ],
+        ),
+
+        const SizedBox(height: 10),
+
+        Row(
+          spacing: 6,
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              alignment: Alignment.center,
+              decoration: const BoxDecoration(
+                color: Colors.amber,
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
+            ),
+
+            Container(
+              width: 40,
+              height: 40,
+              alignment: Alignment.center,
+              decoration: const BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.elliptical(10, 20),
+                ),
+              ),
+            ),
+
+            Container(
+              width: 40,
+              height: 40,
+              alignment: Alignment.center,
+              decoration: const BoxDecoration(
+                color: Colors.deepOrange,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.elliptical(10, 10),
+                  bottomLeft: Radius.circular(20),
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 10),
+        Row(
+          children: [
+            Expanded(
+              child: Container(
+                height: 80,
+                decoration: const BoxDecoration(
+                  color: Colors.black38,
+                  borderRadius: BorderRadius.all(Radius.circular(50)),
+                ),
+              ),
+            ),
+          ],
+        ),
+
+        SizedBox(height: 10),
+
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(width: 40, height: 40, color: Colors.deepOrange),
+            Container(height: 40, width: 40, color: Colors.amber),
+            Container(width: 40, height: 40, color: Colors.blueAccent),
+          ],
+        ),
+
+        SizedBox(height: 10),
+        Row(
+          spacing: 10,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Expanded(
+              child: Container(width: 40, height: 40, color: Colors.deepOrange),
+            ),
+            Expanded(
+              child: Container(height: 40, width: 40, color: Colors.amber),
+            ),
+            Expanded(
+              child: Container(width: 40, height: 40, color: Colors.blueAccent),
+            ),
+          ],
+        ),
+
+        SizedBox(height: 10),
+
+        Row(
+          children: [
+            Container(
+              height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                color: Colors.blue.shade100,
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                border: Border.all(color: Colors.red, width: 2),
+              ),
+            ),
+
+            // SizedBox(width: 10,),
+            Container(
+              height: 100,
+              width: 100,
+              margin: EdgeInsets.only(left: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.white54, Colors.black],
+                ),
+                border: Border.all(color: Colors.red, width: 2),
+              ),
+            ),
+
+            Container(
+              height: 100,
+              width: 100,
+              margin: EdgeInsets.only(left: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                gradient: RadialGradient(
+                  colors: [Colors.white54, Colors.black],
+                ),
+                border: Border.all(color: Colors.red, width: 2),
+              ),
+            ),
+          ],
+        ),
+
+        SizedBox(height: 10),
+
+        Row(
+          children: [
+            Container(
+              width: 100,
+              height: 40,
+              decoration: BoxDecoration(
+                color: Colors.blueAccent,
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.red.shade200,
+                    offset: Offset(10, 10),
+                    blurRadius: 10,
+                  ),
+                  BoxShadow(
+                    color: Colors.red.shade200,
+                    offset: Offset(-10, -10),
+                    blurRadius: 10,
+                  ),
+                ],
+              ),
+              alignment: Alignment.center,
+              child: Text("111"),
+            ),
           ],
         ),
 

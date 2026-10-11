@@ -59,7 +59,14 @@ class _PickerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     const fruits = ['🍎 苹果', '🍌 香蕉', '🍇 葡萄', '🍓 草莓'];
     return Scaffold(
-      appBar: AppBar(title: Text(question)), // 用传进来的参数当标题
+      appBar: AppBar(
+        title: Text(question),
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
       body: ListView.separated(
         itemCount: fruits.length,
         separatorBuilder: (_, _) => const Divider(height: 1),

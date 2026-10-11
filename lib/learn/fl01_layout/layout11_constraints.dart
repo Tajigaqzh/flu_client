@@ -73,7 +73,7 @@ class ConceptCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(12),
-      margin: const EdgeInsets.only(bottom: 8),
+      // margin: const EdgeInsets.only(bottom: 8),
       decoration: BoxDecoration(
         color: Colors.blue.shade50,
         borderRadius: BorderRadius.circular(10),
@@ -102,12 +102,15 @@ class _Bound extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.only(bottom: 30),
       child: Row(
+        // 垂直方向对齐，顶部开始位置对齐
+        // crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 70,
-            padding: const EdgeInsets.symmetric(vertical: 6),
+            width: 80,
+            padding: const EdgeInsets.symmetric(vertical: 10),
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: color,

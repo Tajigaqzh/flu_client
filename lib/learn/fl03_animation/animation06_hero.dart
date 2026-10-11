@@ -60,7 +60,14 @@ class _HeroTarget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.indigo.shade50,
-      appBar: AppBar(title: const Text('详情页')),
+      appBar: AppBar(
+        title: const Text('详情页'),
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
       body: Center(
         child: Hero(
           tag: 'rocket', // 必须和起点页的 tag 一样

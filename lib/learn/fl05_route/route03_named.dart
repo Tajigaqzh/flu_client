@@ -82,7 +82,14 @@ class _Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('迷你App·首页')),
+      appBar: AppBar(
+        title: const Text('迷你App·首页'),
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -106,7 +113,14 @@ class _NamedDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('详情页(被命名路由跳来)')),
+      appBar: AppBar(
+        title: const Text('详情页(被命名路由跳来)'),
+        centerTitle: true,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.of(context).pop(),
+        ),
+      ),
       body: const Center(child: Text('我是 /detail 页面', style: TextStyle(fontSize: 18))),
     );
   }

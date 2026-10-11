@@ -45,6 +45,14 @@ class MyAppPlus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          centerTitle: true, // 全局标题居中
+          iconTheme: IconThemeData(
+            // 这会影响返回按钮等图标
+          ),
+        ),
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: const Align(

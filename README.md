@@ -2,31 +2,25 @@
 
 A new Flutter project.
 
-## Getting Started
+## init
+```bash
+flutter pub get
+```
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-
+## Android
 ```bash
 flutter build apk --release --split-debug-info=build/symbols --split-per-abi
 ```
 
-五律
-七律
-绝句
-七绝
-
-词
+## IOS
+```bash
+flutter build ios --release \
+    --obfuscate \
+    --split-debug-info=build/ios-symbols \
+    --tree-shake-icons \
+    --dart-define=FLUTTER_WEB_CANVASKIT_URL=https://example.com/canvaskit/
+    
+```
 
 
 叹岁华又是重九。
