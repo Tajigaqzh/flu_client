@@ -25,7 +25,14 @@ lib/learn/
 │   ├─ layout12_flex.dart         ← 布局之根 Flex(Row/Column 的本质)
 │   ├─ layout13_overflow.dart     ← 溢出处理 OverflowBox / FittedBox / Clip
 │   ├─ layout14_layout_builder.dart ← 响应式 LayoutBuilder
-│   └─ layout15_transform.dart    ← 变换 Transform 旋转/缩放/平移
+│   ├─ layout15_transform.dart    ← 变换 Transform 旋转/缩放/平移
+│   ├─ layout16_safe_area_media_query.dart ← SafeArea / MediaQuery / 键盘 Insets
+│   ├─ layout17_unconstrained_intrinsic.dart ← UnconstrainedBox / LimitedBox / Intrinsic
+│   ├─ layout18_clip.dart          ← ClipRect / ClipRRect / ClipOval / ClipPath
+│   ├─ layout19_table_page_view.dart ← Table / PageView
+│   ├─ layout20_sliver.dart       ← CustomScrollView / Sliver 列表与网格
+│   ├─ layout21_responsive.dart   ← LayoutBuilder / OrientationBuilder / 断点
+│   └─ layout22_custom_layout.dart ← CustomSingleChildLayout / MultiChildLayout / Flow
 │
 └─ fl02_media/                    ← 第 2 章 · 素材(图片/字体/图标)
     ├─ image_page.dart            ← 知识点:如何加载图片
@@ -83,3 +90,5 @@ class MyPage extends StatelessWidget {
 ## 由浅入深路线(复习)
 
 见 `docs/guide/index.md` 的 28 章规划。第 1–3 章(布局/状态)是地基,优先吃透。
+
+布局第 16–22 章的知识说明和代码对应关系见 `docs/guide/fl01-layout-supplement.md`。

@@ -23,6 +23,13 @@ import 'fl01_layout/layout12_flex.dart';
 import 'fl01_layout/layout13_overflow.dart';
 import 'fl01_layout/layout14_layout_builder.dart';
 import 'fl01_layout/layout15_transform.dart';
+import 'fl01_layout/layout16_safe_area_media_query.dart';
+import 'fl01_layout/layout17_unconstrained_intrinsic.dart';
+import 'fl01_layout/layout18_clip.dart';
+import 'fl01_layout/layout19_table_page_view.dart';
+import 'fl01_layout/layout20_sliver.dart';
+import 'fl01_layout/layout21_responsive.dart';
+import 'fl01_layout/layout22_custom_layout.dart';
 import 'fl02_media/image_page.dart';
 import 'fl02_media/font_page.dart';
 import 'fl02_media/icon_page.dart';
@@ -129,6 +136,13 @@ class KnowledgeMenu extends StatelessWidget {
       TransformPage(),
       Icons.transform,
     ),
+    _MenuItem('布局·⑯安全区', 'SafeArea / MediaQuery / 键盘 Insets', SafeAreaMediaQueryPage(), Icons.phonelink_setup),
+    _MenuItem('布局·⑰约束进阶', 'UnconstrainedBox / LimitedBox / Intrinsic', UnconstrainedIntrinsicPage(), Icons.open_in_full),
+    _MenuItem('布局·⑱裁剪', 'ClipRect / ClipRRect / ClipOval / ClipPath', ClipPage(), Icons.crop),
+    _MenuItem('布局·⑲表格分页', 'Table / PageView', TablePageViewPage(), Icons.view_carousel_outlined),
+    _MenuItem('布局·⑳Sliver', 'CustomScrollView / SliverList / SliverGrid', SliverPage(), Icons.view_agenda_outlined),
+    _MenuItem('布局·㉑响应式', 'LayoutBuilder / OrientationBuilder / 断点', ResponsiveLayoutPage(), Icons.devices),
+    _MenuItem('布局·㉒自定义布局', 'CustomSingleChildLayout / MultiChildLayout / Flow', CustomLayoutPage(), Icons.dashboard_customize_outlined),
     _MenuItem(
       '加载图片',
       '本地资源 / 网络图 / 内存字节,三种姿势',

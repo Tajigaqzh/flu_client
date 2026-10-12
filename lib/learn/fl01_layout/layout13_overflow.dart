@@ -26,9 +26,9 @@ class OverflowPage extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: OverflowBox(
             maxWidth: double.infinity,
-            maxHeight: 90,
+            maxHeight: 100,
             alignment: Alignment.centerLeft,
-            child: const Box('溢出', color: Colors.redAccent, size: 40),
+            child: const Box('溢出', color: Colors.redAccent, size: 80),
           ),
         ),
 
