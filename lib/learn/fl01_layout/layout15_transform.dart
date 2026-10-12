@@ -31,15 +31,25 @@ class TransformPage extends StatelessWidget {
         ),
 
         SectionTitle('测试2'),
-
-        Transform.scale(
-          scale: 0.2,
-          scaleX: 0.2,
-          scaleY: 0.2,
-          origin: Offset.zero,
+        // scale 与 scaleX/scaleY 互斥：统一缩放用 scale，横纵分开用 scaleX/scaleY
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Transform.scale(
+              scale: 0.5,
+              child: const Box('统一0.5', color: Colors.purple, size: 80),
+            ),
+            Transform.scale(
+              scaleX: 1.5, // 横向拉伸
+              scaleY: 0.5, // 纵向压扁
+              child: const Box('横1.5纵0.5', color: Colors.orange, size: 80),
+            ),
+            Transform.flip(
+              flipX: true, // 水平镜像翻转
+              child: const Box('翻转', color: Colors.pink, size: 80),
+            ),
+          ],
         ),
-
-        Transform.flip(),
 
         SectionTitle('② Transform.rotate:旋转'),
         LearnNote('angle 单位是弧度。Math.pi / 4 = 45°。做倾斜的“新贴图”徽章常用。'),

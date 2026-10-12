@@ -63,7 +63,7 @@ Intrinsic 布局会为了查询子树的理想尺寸增加测量工作。优先�
 
 示例：矩形裁剪、圆角矩形、椭圆/圆形和自定义五边形路径。`BoxDecoration.borderRadius` 负责画圆角背景或边框；如果 child 绘制到圆角之外仍要被裁掉，需要 `ClipRRect`。裁剪需要额外绘制工作，避免无必要地层层套用。
 
-## 第 19 章：表格和分页布局
+## 第 19 章：表格布局
 
 代码：`layout19_table_page_view.dart`
 
@@ -71,15 +71,29 @@ Intrinsic 布局会为了查询子树的理想尺寸增加测量工作。优先�
 
 - `Table`、`TableRow`、`TableCell`
 - `FlexColumnWidth`、`FixedColumnWidth`、`IntrinsicColumnWidth`
-- `PageView` 的页面尺寸和滑动方向
-- `PageController`、初始页和页面切换
-- `PageView` 与 `ListView` 的适用场景区别
+- 单元格合并的模拟方式与限制（Table 不支持 colspan/rowspan）
+- `SingleChildScrollView` 横向 / 纵向滚动包裹，以及滚动条 `Scrollbar` 的显示
+- `FlexColumnWidth` 在无界宽度约束下不可用
 
-示例：用固定首列和弹性列展示课程表，并用 `PageController` 驱动分页卡片。控制器由 State 持有并在 `dispose` 中释放。`PageView` 面向逐页浏览；长内容列表使用懒加载的 `ListView` 更合适。
+示例：用固定首列和弹性列展示课程表，演示横向合并（占位格 + 溢出绘制）、纵向合并（合并列拆出 Table）与双向滚动。Table 面向规整的行列对齐数据。
 
-## 第 20 章：CustomScrollView 和 Sliver
+## 第 20 章：走马灯（轮播图）
 
-代码：`layout20_sliver.dart`
+代码：`layout20_carousel.dart`
+
+知识点：
+
+- `PageView` 逐页滑动与 `PageController`
+- 自定义页面面板 + 参数化（背景色、间距、倾斜）
+- 圆点指示器与点击热区扩大（`HitTestBehavior.opaque`）
+- `Timer.periodic` 自动轮播、到尾页取模回绕
+- `Listener` 指针事件实现"按住暂停、松手重新计时"
+
+示例包含手动轮播（可点击指示器跳页）和自动轮播（按住暂停）两节。注意 Timer 必须在 `dispose` 中取消，自动翻页前用 `hasClients` 防护。
+
+## 第 21 章：CustomScrollView 和 Sliver
+
+代码：`layout21_sliver.dart`
 
 知识点：
 
@@ -92,9 +106,9 @@ Intrinsic 布局会为了查询子树的理想尺寸增加测量工作。优先�
 
 示例包含吸顶折叠的 `SliverAppBar`、普通说明区、横向内容、懒加载列表和网格，全部共享一个 `CustomScrollView`。大量同向滚动内容优先合并到一个 Sliver 视口；`shrinkWrap` 会增加测量成本，尤其不适合大列表。
 
-## 第 21 章：响应式布局方案
+## 第 22 章：响应式布局方案
 
-代码：`layout21_responsive.dart`
+代码：`layout22_responsive.dart`
 
 知识点：
 
@@ -109,9 +123,9 @@ Intrinsic 布局会为了查询子树的理想尺寸增加测量工作。优先�
 
 `MediaQuery` 描述整个应用窗口，`LayoutBuilder` 描述当前位置实际收到的父级约束。组件嵌在侧栏或卡片时，局部可用宽度可能远小于屏幕宽度，因此通常应按局部约束布局。
 
-## 第 22 章：自定义布局
+## 第 23 章：自定义布局
 
-代码：`layout22_custom_layout.dart`
+代码：`layout23_custom_layout.dart`
 
 知识点：
 
@@ -149,9 +163,10 @@ Intrinsic 布局会为了查询子树的理想尺寸增加测量工作。优先�
 2. `layout17_unconstrained_intrinsic.dart`
 3. `layout18_clip.dart`
 4. `layout19_table_page_view.dart`
-5. `layout20_sliver.dart`
-6. `layout21_responsive.dart`
-7. `layout22_custom_layout.dart`
+5. `layout20_carousel.dart`
+6. `layout21_sliver.dart`
+7. `layout22_responsive.dart`
+8. `layout23_custom_layout.dart`
 
 前五章覆盖常见业务页面、约束和滚动场景；响应式与自定义布局属于进阶主题。
 

@@ -29,10 +29,11 @@ lib/learn/
 │   ├─ layout16_safe_area_media_query.dart ← SafeArea / MediaQuery / 键盘 Insets
 │   ├─ layout17_unconstrained_intrinsic.dart ← UnconstrainedBox / LimitedBox / Intrinsic
 │   ├─ layout18_clip.dart          ← ClipRect / ClipRRect / ClipOval / ClipPath
-│   ├─ layout19_table_page_view.dart ← Table / PageView
-│   ├─ layout20_sliver.dart       ← CustomScrollView / Sliver 列表与网格
-│   ├─ layout21_responsive.dart   ← LayoutBuilder / OrientationBuilder / 断点
-│   └─ layout22_custom_layout.dart ← CustomSingleChildLayout / MultiChildLayout / Flow
+│   ├─ layout19_table_page_view.dart ← Table / 合并单元格 / 滚动
+│   ├─ layout20_carousel.dart     ← 走马灯 PageView 轮播图 / 自动播放 / 指示器
+│   ├─ layout21_sliver.dart       ← CustomScrollView / Sliver 列表与网格
+│   ├─ layout22_responsive.dart   ← LayoutBuilder / OrientationBuilder / 断点
+│   └─ layout23_custom_layout.dart ← CustomSingleChildLayout / MultiChildLayout / Flow
 │
 └─ fl02_media/                    ← 第 2 章 · 素材(图片/字体/图标)
     ├─ image_page.dart            ← 知识点:如何加载图片

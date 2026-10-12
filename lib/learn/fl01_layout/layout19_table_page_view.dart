@@ -9,13 +9,10 @@ class TablePageViewPage extends StatefulWidget {
 }
 
 class _TablePageViewPageState extends State<TablePageViewPage> {
-  final _controller = PageController();
   final _hController = ScrollController(); // 横向滚动表格的滚动条用
-  int _page = 0;
 
   @override
   void dispose() {
-    _controller.dispose();
     _hController.dispose();
     super.dispose();
   }
@@ -23,11 +20,11 @@ class _TablePageViewPageState extends State<TablePageViewPage> {
   @override
   Widget build(BuildContext context) {
     return KnowledgeScaffold(
-      title: 'Table / PageView',
+      title: 'Table',
       children: [
         KnowledgeCard(
-          'Table / PageView',
-          'Table 按行列对齐单元格；PageView 把同一视口切成可滑动页面。',
+          'Table',
+          'Table 按行列对齐单元格，适合课程表、清单这类规整数据。',
         ),
         SectionTitle('① Table：行列对齐'),
         Table(
@@ -249,65 +246,6 @@ class _TablePageViewPageState extends State<TablePageViewPage> {
           ),
         ),
 
-        SectionTitle('② PageView：分页滑动'),
-        SizedBox(
-          height: 150,
-          child: PageView(
-            controller: _controller,
-            onPageChanged: (value) => setState(() => _page = value),
-            children: const [
-              _PagePanel(
-                color: Colors.teal,
-                title: '第一页',
-                subtitle: 'PageController 可控制初始页和跳转',
-              ),
-              _PagePanel(
-                color: Colors.indigo,
-                title: '第二页',
-                subtitle: '滑动方向可设为 Axis.vertical',
-              ),
-              _PagePanel(
-                color: Colors.deepOrange,
-                title: '第三页',
-                subtitle: 'PageView 适合分页内容，不是长列表替代品',
-              ),
-            ],
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: List.generate(
-            3,
-            (index) => GestureDetector(
-              // 点击指示器跳到对应页；animateToPage 带滑动动画，jumpToPage 直接切
-              onTap: () => _controller.animateToPage(
-                index,
-                duration: const Duration(milliseconds: 250),
-                curve: Curves.easeOut,
-              ),
-              // 8px 的圆点太小点不中，用透明的 32px 容器扩大点击热区
-              behavior: HitTestBehavior.opaque,
-              child: Container(
-                width: 32,
-                height: 32,
-                alignment: Alignment.center,
-                child: Container(
-                  width: 8,
-                  height: 8,
-                  margin: const EdgeInsets.all(4),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: _page == index ? Colors.teal : Colors.black26,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-        const KnowledgeCard(
-          '对比',
-          'ListView 按需连续滚动许多项目；PageView 一次聚焦一个页面，通常用于引导页、图库或分页内容。',
-        ),
       ],
     );
   }
@@ -335,42 +273,5 @@ class _TablePageViewPageState extends State<TablePageViewPage> {
     padding: const EdgeInsets.all(8),
     alignment: Alignment.center,
     child: Text(text),
-  );
-}
-
-class _PagePanel extends StatelessWidget {
-  const _PagePanel({
-    required this.color,
-    required this.title,
-    required this.subtitle,
-  });
-
-  final Color color;
-  final String title;
-  final String subtitle;
-
-  @override
-  Widget build(BuildContext context) => Container(
-    color: color,
-    padding: const EdgeInsets.all(16),
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          title,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Text(
-          subtitle,
-          textAlign: TextAlign.center,
-          style: const TextStyle(color: Colors.white),
-        ),
-      ],
-    ),
   );
 }
