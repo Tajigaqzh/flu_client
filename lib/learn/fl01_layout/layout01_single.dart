@@ -42,6 +42,40 @@ class SinglePage extends StatelessWidget {
             child: Box('右上', color: Colors.indigo, size: 40),
           ),
         ),
+        LearnNote(
+          'Align 会在父级区域中摆放孩子。这里让 Stack 位于左侧，并用 SizedBox 限定为图标大小，这样 Positioned 的 right/top 就相对图标定位。',
+        ),
+        Container(
+          width: double.infinity,
+          color: Colors.grey.shade100,
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: SizedBox(
+              width: 48,
+              height: 48,
+              child: Stack(
+                children: [
+                  const Icon(Icons.notifications, size: 48),
+                  Positioned(
+                    right: 4,
+                    top: 2,
+                    child: Container(
+                      padding: const EdgeInsets.all(3),
+                      decoration: const BoxDecoration(
+                        color: Colors.red,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Text(
+                        '3',
+                        style: TextStyle(color: Colors.white, fontSize: 10),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
 
         SectionTitle('③ Padding:四周留白'),
         LearnNote('给内容四周加“内边距”。值越大,内容离边越远。'),

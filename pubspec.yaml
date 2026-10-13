@@ -63,11 +63,10 @@ flutter:
   assets:
     - assets/images/
 
-  # 若要加载自定义字体,在下面 fonts: 里注册(第2章「应用字体」会讲)
-  # fonts:
-  #   - family: MyFont
-  #     fonts:
-  #       - asset: assets/fonts/MyFont-Regular.ttf
+  fonts:
+    - family: iconfont
+      fonts:
+        - asset: assets/icons/iconfont.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
